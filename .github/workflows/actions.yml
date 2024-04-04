@@ -10,6 +10,12 @@ jobs:
         steps:
             - uses: actions/checkout@v3
             - uses: actions/setup-python@v4
-            - run: python -m pip install --upgrade pip
-            - run: pip install -r requirements.txt
-            - run: uvicorn --reload
+            - name: upgrade pip
+              working-directory: ./backend/
+              run: python -m pip install --upgrade pip
+            - name: install requirements
+              working-directory: ./backend/
+              run: pip install -r requirements.txt
+            - name: run hello world
+              working-directory: ./backend/
+              run: python hello.py
