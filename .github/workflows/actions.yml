@@ -19,3 +19,6 @@ jobs:
             - name: run hello world
               working-directory: ./backend/
               run: python hello.py
+            - name: test the backend
+              working-directory: ./backend/
+              run: pytest
