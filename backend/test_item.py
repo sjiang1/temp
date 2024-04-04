@@ -4,3 +4,4 @@ def test_add_an_item():
     add_an_item(my_item)
     assert(len(items) > 0)
     assert(items[-1].name == "test_item")
+    assert(items[-1].price == 1)
