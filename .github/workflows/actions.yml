@@ -35,6 +35,7 @@ jobs:
                 port: ${{ secrets.PORT }}
                 script_stop: true
                 script: |
+                  source ~/.bashrc
                   cd ~/deploy/
                   git pull
         
