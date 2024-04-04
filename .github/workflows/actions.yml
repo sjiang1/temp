@@ -23,6 +23,7 @@ jobs:
               working-directory: ./backend/
               run: pytest
     deploy:
+        needs: test-backend
         runs-on: ubuntu-latest
         steps:
             - name: try ssh
@@ -32,6 +33,8 @@ jobs:
                 username: ${{ secrets.USERNAME }}
                 key: ${{ secrets.KEY }}
                 port: ${{ secrets.PORT }}
-                script: whoami
-
+                script_stop: true
+                script: |
+                  cd ~/home/ubuntu/deploy/
+                  git pull
         
