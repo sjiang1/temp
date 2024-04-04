@@ -35,7 +35,8 @@ jobs:
                 port: ${{ secrets.PORT }}
                 script_stop: true
                 script: |
-                  source ~/.bashrc
+                  eval "$(ssh-agent -s)"
+                  ssh-add ~/.ssh/github_ssh_key
                   cd ~/deploy/
                   git pull
         
